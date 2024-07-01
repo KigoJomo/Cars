@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <title>Details</title>
+</head>
+<body>
+    <div class="car">
+             <div>
+            <img src="{{ car_image.url }}" alt="">
+            <h2>{{ car.make }}</h2>
+            <h3>{{ car.model }}</h3>
+        <p>Year of Mfct: {{ car.yearMfct }}</p>
+        <p>Trim Level: {{ car.trimlevel }}</p>
+        <p>Fuel Type: {{car.Fueltype}}</p>
+        <p>Drive Type: {{car.drivetype}}</p>
+        <p>Transmission: {{car.transmission}}</p>
+        <p>Engine Size: {{car.enginesize}}</p>
+        <p>Current Location: {{car.CurrentLocation}}</p>
+        <p>Price: KES {{ car.price }}</p>
+        </div>
+    </div>
+</body>
+</html>

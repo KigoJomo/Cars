@@ -1,0 +1,551 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-padding-top: 1rem;
+  scroll-behavior: smooth;
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+:root {
+  --main-color: #d90429;
+  --text-color: #020102;
+  --bg-color: #fff;
+}
+
+body {
+  color: var(--text-color);
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 10vh;
+    position: fixed;
+    top: 0 !important;
+    left: 0;
+    z-index: 100;
+
+    &.shadow {
+      background-color: var(--bg-color);
+      box-shadow: 4px 4px 4px rgb(15 54 55 / 10%);
+      transition: 0.5s ease;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 35px;
+      max-height: 100%;
+
+      #menu-icon {
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: var(--text-color);
+        display: none;
+      }
+
+      .logo {
+        height: 32px;
+
+        img {
+          height: 100%;
+        }
+      }
+
+      .navbar {
+        display: flex;
+        column-gap: 2rem;
+
+        a {
+          color: var(--text-color);
+          font-size: 1rem;
+          text-transform: uppercase;
+          font-weight: 500;
+
+          &:hover {
+            color: var(--main-color);
+            border-bottom: 3px solid var(--main-color);
+          }
+        }
+      }
+    }
+  }
+
+  section {
+    padding: 4rem 0 2rem;
+  }
+
+  .container {
+    // Container styles
+    width: 100dvw;
+    height: 100dvh;
+    margin: 0 auto;
+    padding: 2rem;
+
+    // Carousel styles
+    .carousel {
+        width: 50vw;
+        aspect-ratio: 4/3;
+        overflow: hidden;
+      &.slide {
+        // Carousel slide styles
+        // margin-bottom: 2rem;
+        width: 50vw;
+        aspect-ratio: 4/3;
+
+        .carousel-inner {
+          // Carousel inner styles
+          position: relative;
+          width: 100%;
+          aspect-ratio: inherit;
+          overflow: hidden;
+
+          .carousel-item {
+            // Carousel item styles
+            position: relative;
+            display: none;
+            float: left;
+            width: 100%;
+            aspect-ratio: inherit;
+            margin-right: -100%;
+            backface-visibility: hidden;
+            transition: transform 0.6s ease;
+
+            &.active {
+              // Active item styles
+              display: block;
+              transform: translateX(0);
+            }
+
+            img {
+              // Image styles
+              width: 100%;
+              display: block;
+            }
+          }
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+          // Control buttons styles
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 15%;
+          background: rgba(0, 0, 0, 0.5);
+          color: white;
+          cursor: pointer;
+          z-index: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            background: rgba(0, 0, 0, 0.7);
+          }
+
+          span {
+            // Icon styles
+            font-size: 2rem;
+          }
+
+          .sr-only {
+            // Screen reader only text
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+          }
+        }
+
+        .carousel-control-prev {
+          left: 0;
+
+          .carousel-control-prev-icon {
+            // Previous icon styles
+            background-image: url("../images/previous.png"); // Add your icon path
+          }
+        }
+
+        .carousel-control-next {
+          right: 0;
+
+          .carousel-control-next-icon {
+            // Next icon styles
+            background-image: url("../images/next.png"); // Add your icon path
+          }
+        }
+      }
+    }
+
+    hr {
+      // Horizontal rule styles
+      margin: 2rem 0;
+      border: none;
+      border-top: 1px solid #ddd;
+    }
+  }
+
+  .home {
+    max-width: 1300px;
+    margin: auto;
+    width: 100%;
+    min-height: 640px;
+    display: flex;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center left;
+
+    .home-text {
+      width: 100%;
+
+      h1 {
+        padding-top: 5rem;
+        margin: 0.5rem 0 1.2rem;
+      }
+    }
+
+    .home-image {
+      width: 100%;
+      max-width: 2000px;
+      min-height: 1000px;
+      background: url("../images/r8.jpeg") center/cover no-repeat;
+    }
+  }
+
+  .btn {
+    padding: 10px 22px;
+    background: var(--main-color);
+    color: var(--bg-color);
+    font-weight: 400;
+    margin: 0.5rem 0 1.2rem;
+
+    &:hover {
+      background: #fd052f;
+    }
+  }
+
+  .heading {
+    text-align: center;
+
+    span {
+      font-weight: 500;
+      color: var(--main-color);
+    }
+  }
+
+  .cars-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+    width: 100%;
+    height: 100%;
+
+    .box {
+      flex: 1 1 17rem;
+      position: relative;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      border: 1px solid gray;
+
+      .imageContainer {
+        width: 100%;
+        aspect-ratio: 16/9;
+        max-width: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0;
+        overflow-y: hidden;
+        overflow-x: scroll;
+
+        img {
+          height: 100%;
+          flex-shrink: 0;
+          cursor: pointer;
+          object-fit: cover;
+          object-position: center;
+
+          &:hover {
+            transform: scale(1.1);
+            transition: 0.5s;
+          }
+        }
+      }
+
+      .imgLinks {
+        height: 48px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+        overflow: hidden;
+
+        a {
+          height: 48px;
+          aspect-ratio: 1/1;
+
+          img {
+            height: 48px;
+            width: 48px;
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+      }
+
+      h2 {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        font-weight: 400;
+        font-size: 1rem;
+        background-color: var(--bg-color);
+        padding: 8px;
+        border-radius: 0.5rem;
+
+        &:hover {
+          background: var(--main-color);
+          color: var(--bg-color);
+        }
+      }
+    }
+  }
+
+  .about {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+
+    .about-img {
+      flex: 1 1 21rem;
+    }
+
+    .about-text {
+      flex: 1 1 21rem;
+
+      span {
+        font-weight: 500;
+        color: var(--main-color);
+      }
+
+      h2 {
+        font-size: 1.7rem;
+      }
+
+      p {
+        font-size: 0.938rem;
+        margin: 0.5rem 0 1.4rem;
+      }
+    }
+  }
+
+  .imports-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+
+    .box {
+      flex: 1 1 17rem;
+      position: relative;
+      border-radius: 0.5rem;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        overflow: hidden;
+      }
+
+      h2 {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        font-weight: 400;
+        font-size: 1rem;
+        background-color: var(--bg-color);
+        padding: 8px;
+        border-radius: 0.5rem;
+
+        &:hover {
+          background: var(--main-color);
+          color: var(--bg-color);
+        }
+      }
+
+      .bx {
+        color: var(--main-color);
+        margin: 0.8rem 0;
+      }
+
+      .btn {
+        max-width: 120px;
+      }
+
+      .details {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        bottom: 1.8rem;
+        right: 1rem;
+        color: var(--text-color);
+
+        &:hover {
+          color: var(--main-color);
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .footer {
+    background: var(--text-color);
+    color: #f6f6f6;
+    border-top: 2px solid var(--main-color);
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+
+      .logo {
+        color: var(--bg-color);
+        margin-bottom: 1rem;
+      }
+
+      .footer-box {
+        display: flex;
+        flex-direction: column;
+
+        h3 {
+          font-size: 1.1rem;
+          font-weight: 400;
+          margin-bottom: 1rem;
+        }
+
+        a,
+        p {
+          color: #818181;
+          margin-bottom: 10px;
+
+          &:hover {
+            color: var(--bg-color);
+          }
+        }
+      }
+
+      .social {
+        display: flex;
+        align-items: center;
+
+        a {
+          font-size: 24px;
+          color: var(--bg-color);
+          margin-right: 1rem;
+        }
+      }
+    }
+
+    .copyright {
+      padding: 20px;
+      text-align: center;
+      color: var(--bg-color);
+      background: var(--text-color);
+    }
+  }
+}
+
+@media (max-width: 1080px) {
+  .container {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .nav {
+    padding: 15px 20px;
+  }
+
+  section {
+    padding: 3rem 0 1rem;
+  }
+
+  .home-text {
+    padding-left: 2rem;
+
+    h1 {
+      font-size: 2.1rem;
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  #search-icon {
+    color: var(--text-color);
+  }
+}
+
+@media (max-width: 768px) {
+  #search-box input {
+    padding: 15px;
+  }
+
+  .nav {
+    padding: 10px 0;
+  }
+
+  #menu-icon {
+    display: initial;
+  }
+
+  .navbar {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: none;
+    background: var(--bg-color);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.07);
+    flex-direction: column;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 99;
+
+    li {
+      width: 100%;
+    }
+
+    a {
+      display: block;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #eeeeee;
+      color: var(--text-color);
+    }
+
+    .active {
+      display: flex;
+    }
+  }
+
+  .about-text {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

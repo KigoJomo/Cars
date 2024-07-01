@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body id="bg">
+    <!-- Nav bar -->
+    <header>
+        <!--  Nav Container -->
+        <div class="nav container">
+            <!-- Menu Icon -->
+            <i class="bx bx-menu " id="menu-icon"></i>
+            <!-- Logo -->
+            <!-- <img src="3D MOCKUP.jpg" alt=""> -->
+            <a href="{% url 'home' %}" class="logo">A1 <span>Cars</span></a>
+            <ul class="navbar">
+                <li><a href="#home">Home</a></li>
+                <li><a href="{% url 'local' %}">Local Units</a></li>
+                <li><a href="{% url 'imports' %}">Import With Us</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <!-- Search icon -->
+            <form class="topnav" id="searchForm" method="post" action="">
+                <input id="search" type="text" placeholder="Search..">
+            </form>
+        </div>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-text">
+            <div class="home" style="background-image: url({% static 'images/r8.jpeg' %}); , background-size: cover; ,max-width: 2000px;,min-height: 1000px;">
+                <!-- Content here -->
+            </div>
+            <h1>"Driving Dreams, Delivering Quality."</h1>
+            <a href="{% url 'home' %}" class="btn">Discover now</a>
+        </div>
+    </section>
+
+    <section>
+        <section class="about container" id="about">
+            <div class="about-img">
+                <img src="{% static 'images/royce.jpeg' %}" alt="">
+            </div>
+            <div class="about-text">
+                <span>About</span>
+                <h2>Accelerating the Future.</h2>
+                <p>
+                    When it comes to purchasing a car,
+                    not all companies are created equal,
+                    and the advantages of choosing one
+                    over another can make a significant
+                    difference in your overall satisfaction
+                    . Here at A1 cars, we pride ourselves
+                    on offering unparalleled benefits to our customers
+                    . From our extensive selection of top-quality vehicles
+                    to our transparent pricing and financing options,
+                    we strive to make the car-buying process as smooth
+                    and stress-free as possible. Our commitment to customer servic
+                    e doesn't end after the sale, either. With our comprehensive warranty coverage
+                    and dedicated support team, you can rest assured that you'll
+                    be taken care of long after you drive off the lot. Whether
+                    you're in the market for a reliable sedan, a rugged SUV,
+                    or anything in between, choosing A1 cars means choosing
+                    excellence every step of the way.
+                    Experience the difference for yourself and discover why countless
+                    drivers trust us for all their automotive needs.
+                </p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </section>
+    </section>
+
+    <section class="footer">
+        <div class="footer-container container">
+            <div class="footer-box">
+                <a href="#" class="logo">A1<span>Cars</span></a>
+                <div class="social">
+                    <a href="https://www.instagram.com/a1cars.ke"><i class="bx bxl-instagram"></i></a>
+                    <a href="https://www.twitter.com/a1cars.ke"><i class="bx bxl-twitter"></i></a>
+                    <a href="https://www.facebook.com/a1cars.ke"><i class="bx bxl-facebook"></i></a>
+                    <a href="#"><i class="bx bxl-gmail"></i></a>
+
+                </div>
+            </div>
+            <div class="footer-box">
+                <h3>Page</h3>
+                <a href="#">Home</a>
+                <a href="#">Cars In Kenya</a>
+                <a href="#">Imports</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-box">
+                <h3>Legal</h3>
+                <a href="#">Privacy</a>
+                <a href="#">Cookies Policy</a>
+            </div>
+            <div class="footer-box">
+                <h3>Contact</h3>
+                <p>Kenya</p>
+                <p>Japan</p>
+                <p>Germany</p>
+                <p>United Kingdom</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="copyright">
+        <p>&copy;2024 All rights reserved</p>
+    </div>
+
+    <script src="{% static 'scripts/cars.js' %}"></script>
+</body>
+
+</html>

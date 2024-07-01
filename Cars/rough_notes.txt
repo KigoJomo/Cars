@@ -1,0 +1,13 @@
+#changes made:
+
+1.modified admin.py and models.py to make the admin interface more intuitive and avoid confusion when viewing and interacting with data objects.
+
+2. modified views.py (search view) -- the search function now works as expected
+
+3. (cars.html) -- enclosed the for loop that renders images in an imageContainer
+
+4. included the imageContainer mentioned above in style.css
+
+5. added more CarImages (for Audi Qs7 and Subaru Impreza) via the admin interface
+    -- make a point to add more images for other cars too --
+

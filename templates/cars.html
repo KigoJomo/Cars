@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car List</title>
+    <link rel="stylesheet" href="{% static 'styles/cars.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        {% for car in cars %}
+        <div class="car">
+            <div class="gallery">
+                <div class="image-container">
+                    {% for image in car.images %}
+                        <img id="car-{{ car.id }}-image-{{ forloop.counter0 }}" src="{{ image }}" alt="{{ car.name }}" style="{% if forloop.counter0 != 0 %}display: none;{% endif %}">
+                    {% endfor %}
+                </div>
+                <div class="navigation">
+                    {% for image in car.images %}
+                    <a href="#car-{{ car.id }}-image-{{ forloop.counter0 }}">
+                        <img src="{{ image }}" alt="{{ car.name }}">
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="details">
+                <h2>{{ car.name }} - {{ car.make }} - {{ car.model }}</h2>
+                <p>Year: {{ car.yearMfct }}</p>
+                <p>Price: {{ car.price }}</p>
+                <p>Trim Level: {{ car.trimlevel }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        // JavaScript to handle the image navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('.navigation a');
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetImage = document.getElementById(targetId);
+                    if (targetImage) {
+                        const imageContainer = targetImage.parentElement;
+                        const allImages = imageContainer.querySelectorAll('img');
+                        allImages.forEach(img => img.style.display = 'none');
+                        targetImage.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
